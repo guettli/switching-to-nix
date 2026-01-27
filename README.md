@@ -1,6 +1,6 @@
 # Switching to Nix
 
-I use Linux daily. The basic packages get installed via (in my case) `apt`: Gnome, Chromium, Bash, ripgrep, fdfind, git, meld, ...
+I use Linux daily. The basic packages get installed via (in my case) `apt`: Gnome, Chromium, Bash, ripgrep, fdfind, git, ...
 
 But many tools are often outdated in my Ubuntu LTS, so I use `nix profile` to install them in $HOME.
 
@@ -14,7 +14,7 @@ This is great for the second layer. The three layers are:
 
 ## Layer $HOME
 
-Common packages in layer $HOME: atuin, direnv, go_1_25, kubectl, nix-direnv, pnpm, starship, yq-go
+Common packages in layer $HOME: atuin, direnv, go_1_25, kubectl, nix-direnv, pnpm, starship, yq-go, meld
 
 ## Layer Directory
 
@@ -37,22 +37,25 @@ Currently, I do not use Nix to install the programming language-specific depende
 - Python: pyproject.toml
 - JS/TS: pnpm
 
+
 Auto-updating these packages via `direnv/envrc` did not work well for me. Currently, I do that by hand. Please tell me, if you have a good solution for that!
+
+## vscode
+
+I avoid Snap Packages - I never understood why they exist. But I install `vscode` via Snap.
+
+BTW, I install UI tools I launch via vscode-terminal via nix. Otherwise:
+
+```
+❯ meld 
+/usr/bin/python3: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+```
 
 ## Misc
 
 In January 2026, I switched from using [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to Nix, and it works well.
 
 Currently, I do not use the Nix tool [Home Manager](https://nix-community.github.io/home-manager/), because it adds complexity.
-
-I avoid Snap Packages - I never understood why they exist.
-
-Installing vscode via `nix profile add` failed for me. I download the dpkg again and again, because the snap version failed like this, when I want to start a UI tool like `meld` via the vscode terminal:
-
-```
-❯ meld 
-/usr/bin/python3: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
-```
 
 ## More
 
