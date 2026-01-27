@@ -37,6 +37,7 @@ Currently, I do not use Nix to install the programming language specific depende
 - Python: pyproject.toml
 - JS/TS: pnpm
 
+Auto-updating these packages via `direnv/envrc` did not work well for me. Currently, I do that by hand. Please tell me, if you have a good solution for that!
 
 ## Misc
 
