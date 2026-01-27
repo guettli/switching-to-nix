@@ -4,10 +4,6 @@ I use Linux daily. The basic packages get installed via (in my case) `apt`: Gnom
 
 But many tools are often outdated in my Ubuntu LTS, so that I use `nix profile` to install them in $HOME.
 
-January 2026 I switched from using [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to Nix, and it works well.
-
-Currently, I do not use [Home Manager](https://nix-community.github.io/home-manager/), because it adds complexity.
-
 With `nix profile add nixpkgs#PACKAGE` I install binaries into `~/.nix-profile/bin/`.
 
 This is great for the second layer. The three layers are:
@@ -42,3 +38,8 @@ Currently, I do not use Nix to install the programming language specific depende
 - JS/TS: pnpm
 
 
+## Misc
+
+January 2026 I switched from using [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to Nix, and it works well.
+
+Currently, I do not use the Nix tool [Home Manager](https://nix-community.github.io/home-manager/), because it adds complexity.
