@@ -44,3 +44,7 @@ Auto-updating these packages via `direnv/envrc` did not work well for me. Curren
 In January 2026, I switched from using [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to Nix, and it works well.
 
 Currently, I do not use the Nix tool [Home Manager](https://nix-community.github.io/home-manager/), because it adds complexity.
+
+## More
+
+[Thomas WOL: Working out Loud](https://github.com/guettli/wol)
