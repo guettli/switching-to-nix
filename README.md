@@ -16,7 +16,7 @@ This is great for the second layer. The three layers are:
 
 Common packages in layer $HOME: atuin, direnv, go_1_25, kubectl, nix-direnv, pnpm, starship, yq-go, meld
 
-## Layer Directory
+## Layer Directory (direnv)
 
 I use [direnv](https://direnv.net/) and [nix-direnv](https://github.com/nix-community/nix-direnv).
 
@@ -28,6 +28,9 @@ use flake
 ```
 
 As soon as I enter the directory with `cd mydir`, the packages for this directory get updated (if needed). This just takes a second.
+
+If you use vscode, I recommend [vscode Direnv Extension](https://marketplace.visualstudio.com/items?itemName=mkhl.direnv).
+With this extensions, tasks of type shell automatically load your `.envrc` file (for example AI coding agents).
 
 ## Python/Go/JS Dependencies via Nix?
 
@@ -50,6 +53,8 @@ BTW, I install UI tools I launch via vscode-terminal via nix. Otherwise:
 ❯ meld 
 /usr/bin/python3: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
 ```
+
+
 
 ## Misc
 
