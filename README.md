@@ -32,6 +32,8 @@ As soon as I enter the directory with `cd mydir`, the packages for this director
 If you use vscode, I recommend [vscode Direnv Extension](https://marketplace.visualstudio.com/items?itemName=mkhl.direnv).
 With this extensions, tasks of type shell automatically load your `.envrc` file (for example AI coding agents).
 
+More about [How I use Direnv](https://github.com/guettli/How-I-use-direnv/)
+
 ## Python/Go/JS Dependencies via Nix?
 
 Currently, I do not use Nix to install the programming language-specific dependencies. I use the native format.
