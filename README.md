@@ -34,6 +34,15 @@ With this extensions, tasks of type shell automatically load your `.envrc` file 
 
 More about [How I use Direnv](https://github.com/guettli/How-I-use-direnv/)
 
+Thinks I install via `flake.nix`:
+
+- The programming languages: Go, Python, ...
+- Tools for managing depenencies with each language: pip, nodePackages.pnpm, ...
+- Shell helpers: ripgrep, shellcheck, ...
+- go-task: [Taskfile](https://taskfile.dev/)
+
+BTW, I use the latest stable: `nixpkgs.url = "github:NixOS/nixpkgs/nixos-YY.MM";`. Not `unstable`.
+
 ## Python/Go/JS Dependencies via Nix?
 
 Currently, I do not use Nix to install the programming language-specific dependencies. I use the native format.
