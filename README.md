@@ -56,7 +56,14 @@ BTW, I install UI tools I launch via vscode-terminal via nix. Otherwise:
 /usr/bin/python3: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
 ```
 
+## Taskfile
 
+Nix could be used as an alternative to Makefiles. I tried that, but switched to [Taskfile](https://taskfile.dev/), because Taskfile is easier to
+understand. At least for me.
+
+## No NixOS
+
+NixOS is a Linux operating system. I am not interested. Up to now I stick to Ubuntu LTS - the boring way.
 
 ## Misc
 
