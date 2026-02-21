@@ -70,6 +70,51 @@ BTW, I install UI tools I launch via vscode-terminal via nix. Otherwise:
 Nix could be used as an alternative to Makefiles. I tried that, but switched to [Taskfile](https://taskfile.dev/), because Taskfile is easier to
 understand. At least for me.
 
+```yaml
+version: "3"
+
+tasks:
+  default:
+    desc: Build everything (WASM, TypeScript, ...)
+    deps: [all]
+
+  _nix-check:
+    internal: true
+    run: once
+    preconditions:
+      - sh: test "${DIRENV_DIR#-}" = "{{.TASKFILE_DIR}}"
+        msg: "Not in nix dev shell. Run via: ./run task"
+
+  all:
+    deps: [_nix-check]
+    ...
+```
+
+The `./run` script:
+
+```sh
+#!/usr/bin/env bash
+# Bash Strict Mode: https://github.com/guettli/bash-strict-mode
+trap 'echo -e "\n🤷 🚨 🔥 Warning: A command has failed. Exiting the script. Line was ($0:$LINENO): $(sed -n "${LINENO}p" "$0" 2>/dev/null || true) 🔥 🚨 🤷 "; exit 3' ERR
+set -Eeuo pipefail
+
+# Show usage if no args or first arg starts with -
+if [[ $# -eq 0 ]] || [[ "${1:-}" == -* ]]; then
+    echo "Usage: run <command> [args...]" >&2
+    echo "Example: run tsx scripts/update-ipa.ts phrases-de.yaml" >&2
+    exit 1
+fi
+
+if [[ "${DIRENV_DIR#-}" != "$(cd "$(dirname "$0")" && pwd)" ]]; then
+    # Execute the command with direnv environment loaded
+    exec direnv exec . "$@"
+fi
+
+exec "$@"
+```
+
+This way I am sure that the nix env is active when running Taskfile.
+
 ## No NixOS
 
 NixOS is a Linux operating system. I am not interested. Up to now I stick to Ubuntu LTS - the boring way.
