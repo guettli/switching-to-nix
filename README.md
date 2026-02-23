@@ -75,8 +75,8 @@ version: "3"
 
 tasks:
   default:
-    desc: Build everything (WASM, TypeScript, ...)
-    deps: [all]
+    desc: Build foo
+    deps: [foo]
 
   _nix-check:
     internal: true
@@ -85,7 +85,7 @@ tasks:
       - sh: test "${DIRENV_DIR#-}" = "{{.TASKFILE_DIR}}"
         msg: "Not in nix dev shell. Run via: ./run task"
 
-  all:
+  foo:
     deps: [_nix-check]
     ...
 ```
