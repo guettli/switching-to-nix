@@ -47,8 +47,8 @@ BTW, I use the latest stable: `nixpkgs.url = "github:NixOS/nixpkgs/nixos-YY.MM";
 
 Currently, I do not use Nix to install the programming language-specific dependencies. I use the native format.
 
-- Go: go.mod
-- Python: pyproject.toml
+- Go: built-in (go.mod)
+- Python: uv
 - JS/TS: pnpm
 
 
