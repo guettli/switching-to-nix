@@ -139,4 +139,7 @@ because it adds complexity.
 
 ## More
 
-[Thomas WOL: Working out Loud](https://github.com/guettli/wol)
+- [Bash Strict Mode](https://github.com/guettli/bash-strict-mode)
+- [How I use Direnv](https://github.com/guettli/How-I-use-direnv/)
+- [Switching to Nix](https://github.com/guettli/switching-to-nix)
+- [Thomas WOL: Working out Loud](https://github.com/guettli/wol)
