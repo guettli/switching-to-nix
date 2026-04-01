@@ -1,6 +1,7 @@
 # Switching to Nix
 
-I use Linux daily. The basic packages get installed via (in my case) `apt`: Gnome, Chromium, Bash, ripgrep, fdfind, git, ...
+I use Linux daily. The basic packages get installed via (in my case) `apt`: Gnome, Chromium, Bash,
+ripgrep, fdfind, git, ...
 
 But many tools are often outdated in my Ubuntu LTS, so I use `nix profile` to install them in $HOME.
 
@@ -14,7 +15,8 @@ This is great for the second layer. The three layers are:
 
 ## Layer $HOME
 
-Common packages in layer $HOME: atuin, direnv, go_1_25, kubectl, nix-direnv, pnpm, starship, yq-go, meld
+Common packages in layer $HOME: atuin, direnv, go_1_25, kubectl, nix-direnv, pnpm, starship, yq-go,
+meld
 
 ## Layer Directory (direnv)
 
@@ -27,10 +29,12 @@ Example .envrc file:
 use flake
 ```
 
-As soon as I enter the directory with `cd mydir`, the packages for this directory get updated (if needed). This just takes a second.
+As soon as I enter the directory with `cd mydir`, the packages for this directory get updated (if
+needed). This just takes a second.
 
-If you use vscode, I recommend [vscode Direnv Extension](https://marketplace.visualstudio.com/items?itemName=mkhl.direnv).
-With this extensions, tasks of type shell automatically load your `.envrc` file (for example AI coding agents).
+If you use vscode, I recommend [vscode Direnv
+Extension](https://marketplace.visualstudio.com/items?itemName=mkhl.direnv). With this extensions,
+tasks of type shell automatically load your `.envrc` file (for example AI coding agents).
 
 More about [How I use Direnv](https://github.com/guettli/How-I-use-direnv/)
 
@@ -45,14 +49,15 @@ BTW, I use the latest stable: `nixpkgs.url = "github:NixOS/nixpkgs/nixos-YY.MM";
 
 ## Python/Go/JS Dependencies via Nix?
 
-Currently, I do not use Nix to install the programming language-specific dependencies. I use the native format.
+Currently, I do not use Nix to install the programming language-specific dependencies. I use the
+native format.
 
 - Go: built-in (go.mod)
 - Python: uv
 - JS/TS: pnpm
 
-
-Auto-updating these packages via `direnv/envrc` did not work well for me. Currently, I do that by hand. Please tell me, if you have a good solution for that!
+Auto-updating these packages via `direnv/envrc` did not work well for me. Currently, I do that by
+hand. Please tell me, if you have a good solution for that!
 
 ## vscode
 
@@ -60,15 +65,17 @@ I avoid Snap Packages - I never understood why they exist. But I install `vscode
 
 BTW, I install UI tools I launch via vscode-terminal via nix. Otherwise:
 
-```
-❯ meld 
-/usr/bin/python3: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+```text
+❯ meld
+/usr/bin/python3: symbol lookup error:
+/snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol:
+__libc_pthread_init, version GLIBC_PRIVATE
 ```
 
 ## Taskfile
 
-Nix could be used as an alternative to Makefiles. I tried that, but switched to [Taskfile](https://taskfile.dev/), because Taskfile is easier to
-understand. At least for me.
+Nix could be used as an alternative to Makefiles. I tried that, but switched to
+[Taskfile](https://taskfile.dev/), because Taskfile is easier to understand. At least for me.
 
 ```yaml
 version: "3"
@@ -95,7 +102,9 @@ The `./run` script:
 ```sh
 #!/usr/bin/env bash
 # Bash Strict Mode: https://github.com/guettli/bash-strict-mode
-trap 'echo -e "\n🤷 🚨 🔥 Warning: A command has failed. Exiting the script. Line was ($0:$LINENO): $(sed -n "${LINENO}p" "$0" 2>/dev/null || true) 🔥 🚨 🤷 "; exit 3' ERR
+trap 'echo -e "\n🤷 🚨 🔥 Warning: A command has failed. Exiting the script.
+Line was ($0:$LINENO): $(sed -n "${LINENO}p" "$0" 2>/dev/null || true)
+🔥 🚨 🤷 "; exit 3' ERR
 set -Eeuo pipefail
 
 # Show usage if no args or first arg starts with -
@@ -117,13 +126,16 @@ This way I am sure that the nix env is active when running Taskfile.
 
 ## No NixOS
 
-NixOS is a Linux operating system. I am not interested. Up to now I stick to Ubuntu LTS - the boring way.
+NixOS is a Linux operating system. I am not interested. Up to now I stick to Ubuntu LTS - the boring
+way.
 
 ## Misc
 
-In January 2026, I switched from using [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to Nix, and it works well.
+In January 2026, I switched from using [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux)
+to Nix, and it works well.
 
-Currently, I do not use the Nix tool [Home Manager](https://nix-community.github.io/home-manager/), because it adds complexity.
+Currently, I do not use the Nix tool [Home Manager](https://nix-community.github.io/home-manager/),
+because it adds complexity.
 
 ## More
 
