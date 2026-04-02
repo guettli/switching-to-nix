@@ -39,7 +39,14 @@ warn-dirty = false
 Add nix-bin to PATH:
 
 ```sh
+# ~/.bashrc
 export PATH="$HOME/.nix-profile/bin:$PATH"
+```
+
+Install basic tools in layer $HOME:
+
+```console
+user@linux> nix profile install nixpkgs#direnv nixpkgs#nix-direnv
 ```
 
 ## Layer $HOME
