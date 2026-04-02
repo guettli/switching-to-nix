@@ -15,6 +15,19 @@ This is great for the second layer. The three layers are:
 
 ## Config
 
+Start Nix Daemon
+
+```
+root@linux# systemctl enable --now nix-daemon
+```
+
+Add non-root-user to nix-users group:
+```
+root@linux# usermod -aG nix-users YOUR_NON_ROOT_USER
+```
+
+As non-root-user:
+
 `~/.config/nix/nix.conf`
 
 ```nix
