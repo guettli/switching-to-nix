@@ -13,6 +13,16 @@ This is great for the second layer. The three layers are:
 2. $HOME packages (nix profile)
 3. Per directory (flake.nix and direnv)
 
+## Config
+
+`~/.config/nix/nix.conf`
+
+```nix
+experimental-features = nix-command flakes
+
+warn-dirty = false
+```
+
 ## Layer $HOME
 
 Common packages in layer $HOME: atuin, direnv, go_1_25, kubectl, nix-direnv, pnpm, starship, yq-go,
