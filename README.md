@@ -17,12 +17,12 @@ This is great for the second layer. The three layers are:
 
 Start Nix Daemon
 
-```
+```console
 root@linux# systemctl enable --now nix-daemon
 ```
 
 Add non-root-user to nix-users group:
-```
+```console
 root@linux# usermod -aG nix-users YOUR_NON_ROOT_USER
 ```
 
@@ -34,6 +34,12 @@ As non-root-user:
 experimental-features = nix-command flakes
 
 warn-dirty = false
+```
+
+Add nix-bin to PATH:
+
+```sh
+export PATH="$HOME/.nix-profile/bin:$PATH"
 ```
 
 ## Layer $HOME
