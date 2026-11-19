@@ -15,15 +15,15 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             go-task
-            betterleaks
+            mise
             markdownlint-cli
-            pre-commit
+            prek
             shellcheck
             yamllint
           ];
 
           shellHook = ''
-            pre-commit install --install-hooks >/dev/null
+            prek install --prepare-hooks >/dev/null
           '';
         };
       });
